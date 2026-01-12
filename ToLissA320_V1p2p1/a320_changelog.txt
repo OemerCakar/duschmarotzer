@@ -1,0 +1,321 @@
+This is ToLiss A320neo V1.2.1 (Build 1659)
+
+Changes from V1.2:
+
+Bug fixes:
+- Fixed a bug with the engine type selection that occurred when the CEO addon is not present.
+
+
+
+This is ToLiss A320neo V1.2 (Build 1658)
+
+Changes from V1.1.7:
+
+New features:
+- Adaptation of the WX radar to the new XP12.3 functionality
+- The EFB now has an in-screen keyboard which can also be used in VR
+- A320ceo addon
+- New Aircraft motion freeze function allowing to configure the aircraft while stationary
+
+Bug fixes:
+- Fixed an issue with terrain tile loading during waypoint skipping
+- Fixed red ADF1 flag in ARC Mode
+- Fixed slow refuel function in the ISCS
+- No W/S ahead go around callout during TO phase
+- When using APU BLEED, Packs on does not impact TO N1 rating
+- Reversion to climb phase by entering CRZ FL not possible in GA phase
+- The FMA A/THR indications now treat an engine with thrust levers at idle the same as if it was failed (same IRL)
+- Fixed an issue with the scale of the headwind/tailwind for CI/Speed computation
+- Fixed an issue with the flight path computation that could lead to 0.0 EFOB independent of the actual FOB
+- Found and fixed a problem when going from the MCDU DATA page to the Wind page
+- Made the hydraulic system less susceptible to overheating when ENG 1 is failed
+- Resolved an issue on the SEC PERF APPR page, where the approach type was linked to active flight plan
+- Fixed a minor error with the acceleration compensation in the idle descent profile computation; the aircraft should stay closer to speed target now
+- Improved FMS fuel and time predictions when only Departure and Arrival airport are present
+- Retuned landing gear spring constants for more realistic ground deflections (XP12 only)
+
+
+This is ToLiss A320neo V1.1.7 (Build 1649)
+Changes from V1.1.6:
+
+Bug fixes:
+- Improvements to the Bleed Leak ECAM procedures
+- Reduced the engine vibration levels as per customer feedback
+- Fixed an issue with the DIR TO path introduced with build 1640
+
+
+This is ToLiss A320neo V1.1.6 (Build 1646)
+Changes from V1.1.5:
+
+Bug fixes:
+- Fixed flight phase issue when starting only one engine (e.g. Single Engine Taxi)
+- Alpha Floor is now only available in normal law (as is the case in real life)
+- Add High Speed Stability to Alternate law
+- Improved resistance of ADIRUs to power source switching
+- Fixed a bug that disabled ground power after config loads
+- Fixed a bug that could lead to different paths computed by FMGC1 and FMGC2 for "heading to" A424 legs, if the simulated position inaccuracy between FMGC1 and 2 is very large
+- Adapted the ENG FIRE on ground procedure to a more modern FWC standard
+- Changed the logic for "Direct Law" on Gear Down after "Alternate Law" to be a function of the "Gear not uplocked" signal, rather than the Gear Lever
+
+
+This is ToLiss A320neo V1.1.5 (Build 1643)
+Changes from V1.1.4:
+
+Bug fixes:
+- Improved Yaw control in Alternate and Direct law (removed control components available in normal law only)
+- Improved roll control authority close to VMCA
+- Manual engine start does not automatically abort anymore in case of EGT limit exceedance
+- Removed Oil Qty indication from ECAM Cruise page, if information not available
+- Removed FAC related ECAM items, if eRudder configuration is selected
+
+
+This is ToLiss A320neo V1.1.4 (Build 1640):
+Changes from V1.1.3:
+
+Bug fixes:
+- Fixed the flickering of the captain tiller label
+- Improved situation load logic to make sure systems initialize as they should
+- Fixed potential crashes when trying to load erroneous terrain tiles
+- Fixed an issue with replay leading to weird engine ratings after exiting replay
+- Fixed an issue that may cause crashes during flight plan intercept
+
+
+
+This is ToLiss A320neo V1.1.3 (Build 1637):
+Changes from V1.1.2:
+
+Bug fixes:
+- Fixed issues with drawing of the offset route and route intercept from HDG mode
+- Reverted Linux build config to Ubuntu 22.04 for better compatibility with different Linux distributions
+- Brought flight plan related datarefs back that are used by XFirstOfficer, SpeedyCopilot and others
+- When in mode HDG, the managed speed target now ignores speed constraints like in real life
+
+
+This is ToLiss A320neo V1.1.2 (Build 1635):
+Changes from V1.1.1:
+
+Minor new features:
+- Added the gLoad indicator on the SD during excessive gLoad maneuvers
+- Autoland light is now operational
+- DCDUs can now be deselected in the ISCS
+- Sorted ISCS Situation list alphabetically also on Mac and Linux
+- Changed drawing of FMS route on ND to cut drawing off past routes and improved drawing order
+
+Bug fixes:
+- If in mode LOC/G/S or LAND if both MMRs fail, the AP will disconnect
+- If in mode Alpha Floor, pressing the instinctive disconnect buttons on the throttles disengages Alpha Floor (even if conditions for Alpha Floor still present)
+- Below DH, CAT 3 DUAL is frozen, even if conditions revert to CAT 3 Single
+- Improved cabin temperature control algorithm to prevent integrator runaway during longer durations on LP air on the ground
+- Improvements to Soft GA logic in the context of engine failures.
+- EFB ISCS now dims with EFB brightness setting
+- Reduced risk of airplane going into "crashed" state after situation load through the EFB.
+- Removed text overlap under IMM EXIT on flight plan B page.
+- Fixed labels on right side of the thrust levers
+
+
+This is ToLiss A320neo V1.1.1 (Build 1632):
+Changes from V1.1:
+
+Bug fixes:
+- Removed the repetitive "ding" sound, when the No Smoking switch is in position ON
+- Corrected the color of the RAM Air Inlet indication when open in flight.
+- FPLN Page Destination EFOB turns amber, if below minimum required.
+- Added cross track error display on ground prior to departure
+- Disabled autobrake if 2 or more SECs are lost.
+- Removed an issue leading to an erroneous short appearance of "SLAT FAULT" message during ENG 2 start.
+- Fixed a bug that could cause sending many requests to the Hoppie network in a short period of time.
+- Added selected heading value on ND, if in ARC mode, the heading bug is not visible.
+
+
+This is ToLiss A320neo V1.1 (Build 1626):
+Changes from V1.0.4:
+
+New features:
+- Hydraulic improvement package: 
+	. Added simulation of trapped hydraulic fluid in asymmetric actuators such as landing gear or spoiler actuators. 
+	. Fixed the PTU overheat when ENG1 is failed.
+- MCDU improvement package: 
+	. CLR command is now indented in scratchpad as in real life
+	. DIR TO page prefills the RADIAL IN on the DIR TO page as required
+- ECAM improvement package: 
+	. Overspeed warning now triggers based on actual flap/slat position and not lever position (PFD barber pole is still lever position driven as in real life.)
+	. Removed duplication of system titles if the same system shows multiple subsequent rows of ECAM messages.
+	. Weight display logic for SD: Prior to engine start, the dashes are now cyan. Weights now only show after engine start, like in real life.
+	. Status page improvement: Approach procedures for hydraulic faults
+	. Rework of the ECAM messages for electrical bus failures to represent a newer FWC standard
+- FMGS improvement package:
+	. Added possibility to use Airport ICAO codes as waypoints
+	. Bug fixes for the path computation leading to an overall much stabler path computation in complex procedures.
+	. Empty flight plan shows as PPOS / Discon rather than just "End of flpn" and can be built up from there.
+	. VIA selection is now automatic, if there is exactly one VIA that matches the selected FINAL and STAR.
+	. Constraints of first waypoint in STAR are not dropped anymore.
+- New failure modes: 
+	. Slow and rapid decompression
+	. THS jam.
+	. Cargo smoke, including latched closure of the isolation valves
+	. Added high lift failures, including loss of SFCC channels and slats/flaps lock
+	. Windshears with correct REAC W/S detection and indication.
+- Visual improvement package:
+	. Added AoA Vanes to fuselage model
+	. Fixed the tiller textures
+	. Animated the flap lever guard
+	. Correct the eye reference ball colors and location
+	. Fixed text overlaps on the overhead panel
+- Added new Circuit breakers (for high lift, air conditioning packs, ...) bringing the total to 240
+- Added pitch influence to the RADALT value, so that the RADALT decreases when you pitch up (like IRL)
+- Added limitation with filtering to the maximum number of waypoints shown on ND when WPT overlay selected.
+- Quick starts for engine and APU are now available on the Joystick/Actions tab.
+- Mapped flight number to x-plane dataref "sim/cockpit2/radios/actuators/flight_id" for third party plugin interfacing.
+- Improved Master Warning flashing frequency.
+- Terrain on ND drawing around the airport is now inhibited for areas of same elevation as the airport.
+
+
+Bug fixes:
+- Fixed issue with the interaction between the CLR button and the status page
+- Fixed issue with status page overflow.
+- The emergency generator now consumes hydraulic fluid.
+- The magnetic variation model now updates for the current year.
+- Fixed FMA alignment of armed modes and issue with empty boxes
+- Extended the permissible value range for FCU speed window to 399kts and Mach 0.99 like in real life
+- Extended the permissible value range for FCU altitude window to 49000ft like in real life
+- ISI startup correction: QNH is also visible during ISI startup; moved QNH to right location.
+- Removed CHG CODE field for other phases than PREFLIGHT or DONE.
+- Improved string termination on MCDU string datarefs.
+- Fixed an issue with SID route in alternate plan on first alternate plan programming.
+- Fixed an issue with waypoints preceded by a discon where the outgoing leg is of the CI/CD/CR/CA or VI/VR/VD type.
+- Fixed FMA indication for managed descent on profile with significantly too slow speed.
+- Fixed behaviour of the FCU HDG managed dot when a managed mode (NAV, LOC, APPR) is armed.
+- Fixed shape of the ADF2 needle on the ND.
+- Removed GS indication on ND, when the associated ADIRU is OFF or invalid.
+- Made the deceleration when descending through the SPD LIM altitude smoother.
+- Fixed issue with the beta target leading to excessive rudder deflection and spoiler extension on the wrong side.
+- Lots of other bug fixes (too many to list here)
+
+
+
+
+This is ToLiss A320neo V1.0.4 (Build 1600):
+
+New feature:
+- New ISCS option to allow rudder pedals to fully deflect the nose wheel in VR mode in XP12.
+
+Bug fixes:
+- Corrected position of the dome light source
+- Fixed flare law type (back to old flare law, while maintaining the TO rotation and landing derotation laws)
+- Fixed issue with EFB TO Performance calculator when using AUTO flap setting.
+- Fixed issue with managed speed target during touch and goes.
+- Fixed a bug with the date on Wind and Flight plan data printouts
+
+
+This is ToLiss A320neo V1.0.3 (Build 1596):
+
+New features:
+- Added new C/Bs brining the total number of functional C/Bs to 221
+- New faults: Yaw Damper, Rudder Travel Limiter, Rudder Trim
+- New faults: Hydraulic system overheat
+- FADEC needs 2-3 seconds to power up
+- Popout windows now remain visible in external view
+- ATIS requests via the Hoppie network can now also query the PilotEdge network
+- New failure modes: FADEC faults
+- Reordered ECAM messages to represent newer FWC standard
+- ACP knobs are now moving up and down
+- Added Ignition failures to ECAM. (Use C/Bs to disable ignition)
+
+Bug fixes:
+- Corrected labelling issues in Overhead panel and on rear C/B panels.
+- Prevented G/S mode engagement with both ratio altimeters failed
+- Improved sounds during replay
+- Corrected the arrangment of the Taxi and TO lights in the nose landing gear.
+- Adapted center tank fuel pump configuration to the new standard
+- Changed FMA indication to maximum of CAT 2 when A/THR is not engaged.
+- Brought TRx INOP status message back on SD Status page.
+- Fixed HYD Page PTU color when conditions for PTU to operate are not met.
+- Round metric FCU altitude on PFD to 10m
+- Improved FAC FAULT ECAM actions
+- Added 3s timeout when pressing the status page with status "NORMAL".
+- Use FMGS weights for VLS if initialized.
+- Reworked behaviour of the FAC cutout switches
+- MCDU APPR speed predictions take current weight, when approach phase active.
+- PTU should not be able to power circuits without fluid anymore
+- with dual RA fault, LG not down warning should trigger with flaps 3 or 4
+- improved go around engagement logic, to all GA engagement also in climb phase.
+- Improved ISCS open/closing in VR
+- Removed armed NAV mode when performing a TO without FDs.
+- Prevent overwriting of cruise waypoint wind data when reaching TOC or initiating S/Cs.
+- Improved contour matching for artifical cockpit window reflections
+- Fixed managed speed profile in Go Around after acceleration altitude
+- Simbrief wind upload should work again. (Note that it extracts the data from the wind data field, not from the flight plan itself.)
+- Fixed number of blades in the PW1100G engine.
+- Improved bleed pressure at cruise
+- Improved altitude alert logic (C chord and flashing frame)
+- Fixed logic for ELAC/SEC reversion to backup power supply
+- Maintain VHF selection in the RMPs during power tranients
+- Improved Dept RWY remapping on situation load
+- Improved logic for MCDU class II messages
+
+
+
+This is ToLiss A320neo V1.0.2 (Build 1584):
+
+Minor new features:
+- Added engine sound blending at high altitudes and Mach number for more realistic sound experience in the cockpit in cruise
+- Full support for the new XP12 copilot joystick axes including separate in-cockpit animations if these axes are assigned
+- Radioaltimeter failures are now available
+
+Bug fixes:
+- Fixed some issues with the new cockpit textures
+- Improved the new engine sounds (removing of phasing, better sound in aft cabin)
+- Improved the new external pack sound (previously labelled APU Bleed sound)
+- Added autopilot disconnection on manual trim.
+- Reduced minimum valid preselected speed to allow speeds below 160kts.
+- Improved mouse wheel pitch trim speed
+- Fixed FMGS bootup when starting on ground with external power applied or APU running.
+- Fixed the issue that when launching an emergency evacuation the doors were waiting for the ground vehicles to open
+- Fixed a bug with the descent profile following if below transition level and QNH in MCDU and QNH on FCU don't match
+- Fixed the on-ground rotation law
+- Some improvements to the smartcopilot.cfg file
+- Fixed a bug that caused the GS Mini not to be considered with pilot selected VAPP.
+- Fixed jitter of the L/DEV and V/DEV scales that can occur under certain conditions when performing a GA during a non-precisiong approach
+
+
+This is A320V1.0.1 (Build 1577):
+
+Major new features:
+- Major sound rework
+- Native M1 support on iMac
+
+Minor new features:
+- Oil temperature indication on ECAM now changes according to logic specific for the given engine type
+- Increase landing gear tire resolution for a rounder experience
+- Added console lights (XP12 only)
+- Increase number of possible simultaneous faults to 20
+- Added PRED WS OFF memo
+- Automatic reversion to arrival or departure ATIS request if regular ATIS is not available (via Hoppie network)
+- Added animated sunblinds
+- Added animated stairs on the left side.
+
+Bug fixes:
+- Fixed ISCS not working correctly on multi monitor setups
+- Corrected oil temperature speed of change
+- Corrected the logic for the required cooling time on the PW1100G engines
+- Inhibit of EGT OVERLIMIT warning following an engine shutdown due to fire
+- Brought the REV SET ECAM Caution back
+- Adapted belly fairing shape
+- Improved tire rotation animation
+- Fixed the missing inner flap track fairing when multifunction runway lights are selected
+- Fixed UV mapping issue on the outflow valve
+- Improved wing scan light visibility at daytime.
+- Fixed upper beacon position in XP11
+- Fixed mouse wheel function on WX Radar System switches
+- Fixed XP11 librain rain effects
+- Fixed FBW behaviour in case of loss of both FAC (no reversion to direct on L/G extension)
+- Fixed FBW upmode logic to allow automatic upmode to normal law if conditions triggering a degenerated law are gone.
+- Fixed link between APU start capability and battery availability
+- Improved VLS computation in dual hydraulic cases with slats frozen in the retracted position.
+- Improved rudder authority for VMGC and Beta target
+- Improved MCDU and FMGC startup sequence on ground
+- Fixed a crash in PDC/CPDLC messages if there are space characters in the wrong spot.
+- Fixed a bug with fuel consumption during 200NM jumps
+
+This is A320V1.0 (Build 1572):
+Initial release
